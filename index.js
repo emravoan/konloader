@@ -1,3 +1,2 @@
-'use strict';
-
-module.exports = require('./dist/bundle');
+import KonLoader from './dist/bundle';
+export default KonLoader;
