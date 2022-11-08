@@ -1,0 +1,39 @@
+{
+  "name": "@emravoan/konloader",
+  "version": "1.0.0",
+  "description": "Flash and Loading Screen",
+  "author": "EM Ravoan",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup --config --configPlugin typescript",
+    "watch": "rollup --config --configPlugin typescript -w"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.4",
+    "@types/node": "^18.7.8",
+    "autoprefixer": "^10.4.8",
+    "esbuild": "^0.15.7",
+    "postcss": "^8.4.16",
+    "prettier": "^2.7.1",
+    "rollup": "^2.78.1",
+    "rollup-plugin-copy-assets": "^2.0.3",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-esbuild": "^4.9.3",
+    "rollup-plugin-scss": "^3.0.0",
+    "sass": "^1.54.5",
+    "tslib": "^2.4.0",
+    "typescript": "^4.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emravoan/konloader.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/emravoan/konloader/issues"
+  },
+  "homepage": "https://github.com/emravoan/konloader#readme"
+}
