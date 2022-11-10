@@ -1,5 +1,7 @@
 .*
+*.json
+*.config.ts
+src
+
 !dist
 !index.js
-!README.md
-!LICENSE

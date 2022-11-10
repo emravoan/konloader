@@ -1,41 +1,48 @@
-<h1 align="center">KonLoader - Flash and Loading Screen</h1>
+<h1 align="center">KonLoader - Simple JS Loader</h1>
 
 ## Example
+
 ```js
-// Init KonLoader
-const konloader = KonLoader.getInstance();
-konloader.initialize();
+import KonLoader from '@emravoan/konloader';
 
-// Hide Only Background
-konloader.hideFlash();
+// show with Background
+KonLoader.show({ isShowBackground: true });
 
-// Hide Loader
-setTimeout(() => konloader.hide(), 1500);
+// 2 seconds later, hide background
+setTimeout(() => KonLoader.hide({ isBackgroundOnly: true }), 2000);
+
+// 2 seconds later after hide background, hide loading
+setTimeout(() => KonLoader.hide(), 4000);
 ```
 
 ## Usage
 
-#### Initialize
+#### Show
+
 ```js
-const konloader = KonLoader.getInstance();
-konloader.initialize();
+KonLoader.show();
+
+// with background
+KonLoader.show({ isShowBackground: true });
+
+// with light theme
+KonLoader.show({ theme: 'light' });
 ```
 
-#### Show Loader
+#### Hide
+
 ```js
-konloader.show();
+KonLoader.hide();
+
+// only background
+KonLoader.hide({ isBackgroundOnly: true });
 ```
 
-#### Hide Loader
-```js
-konloader.hide();
-```
-#### Show Only Background
-```js
-konloader.showFlash();
-```
+#### CSS
 
-#### Hide Only Background
-```js
-konloader.hideFlash();
+```css
+:root {
+	--kld-color: #212a44;
+	--kld-dark-color: #ffffff;
+}
 ```
