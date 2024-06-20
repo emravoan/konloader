@@ -1,9 +1,15 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
     "baseUrl": ".",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "outDir": "./dist",
     "paths": {
       "*": ["node_modules/*"]
     }
-  }
+  },
+  "exclude": ["node_modules", "dist"]
 }

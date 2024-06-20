@@ -6,12 +6,9 @@
 import KonLoader from '@emravoan/konloader';
 
 // show with Background
-KonLoader.show({ isShowBackground: true });
+KonLoader.show();
 
-// 2 seconds later, hide background
-setTimeout(() => KonLoader.hide({ isBackgroundOnly: true }), 2000);
-
-// 2 seconds later after hide background, hide loading
+// 4 seconds later after hide background, hide loading
 setTimeout(() => KonLoader.hide(), 4000);
 ```
 
@@ -22,27 +19,21 @@ setTimeout(() => KonLoader.hide(), 4000);
 ```js
 KonLoader.show();
 
-// with background
-KonLoader.show({ isShowBackground: true });
-
-// with light theme
-KonLoader.show({ theme: 'light' });
+// for dark mode
+KonLoader.show({ mode: 'dark' });
 ```
 
 #### Hide
 
 ```js
 KonLoader.hide();
-
-// only background
-KonLoader.hide({ isBackgroundOnly: true });
 ```
 
 #### CSS
 
 ```css
 :root {
-	--kld-color: #212a44;
-	--kld-dark-color: #ffffff;
+  --kld-color: #212a44;
+  --kld-dark-color: #ffffff;
 }
 ```

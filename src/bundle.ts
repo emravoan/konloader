@@ -1,51 +1,36 @@
-import { IHideOption, IShowOption, qs } from './constant';
+import { IOption, qs } from './constant';
 import './scss/app.scss';
 
 export default class KonLoader {
+  static klddom: string = `<div id="konloader" class="kld-container" style="display: none"><div class="kld-flash hidden" style="display: none"></div><div class="kld-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>`;
 
-	static klddom: string = `<div id="konloader" class="kld-container" style="display: none"><div class="kld-flash hidden" style="display: none"></div><div class="kld-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>`;
+  static show(option?: IOption) {
+    const elKld = qs('#konloader') as HTMLElement;
 
-	static show(option: IShowOption = {}) {
-		if (!qs('#konloader')) {
-			document.body.appendChild(
-				(new DOMParser()).parseFromString(KonLoader.klddom, 'text/html').body.firstChild as HTMLElement
-			);
-		}
+    if (!elKld) {
+      document.body.appendChild(
+        new DOMParser().parseFromString(KonLoader.klddom, 'text/html').body.firstChild as HTMLElement
+      );
 
-		if (option.theme === 'light') {
-			qs('#konloader').classList.add('dark');
-		}
+      KonLoader.show(option);
+      return;
+    }
 
-		if (!option.isShowBackground) {
-			// hide background
-			qs('#konloader').firstElementChild.classList.add('hidden');
-			setTimeout(() => qs('#konloader').firstElementChild.style.setProperty('display', 'none'), 1500);
+    console.log(option);
+    if (option?.mode === 'dark') {
+      elKld.classList.add('dark');
+    }
 
-			qs('#konloader').style.setProperty('display', '');
-			return;
-		}
+    elKld.style.setProperty('display', '');
+  }
 
-		qs('#konloader').style.setProperty('display', '');
-		qs('#konloader').firstElementChild.classList.remove('hidden');
-		qs('#konloader').firstElementChild.style.setProperty('display', '');
-	}
+  static hide() {
+    const elKld = qs('#konloader') as HTMLElement;
 
-	static hide(option: IHideOption = {}) {
-		if (!qs('#konloader')) {
-			return;
-		}
+    if (!elKld) {
+      return;
+    }
 
-		if (option.isBackgroundOnly) {
-			// hide background
-			qs('#konloader').firstElementChild.classList.add('hidden');
-			setTimeout(() => qs('#konloader').firstElementChild.style.setProperty('display', 'none'), 1500);
-
-			qs('#konloader').style.setProperty('display', '');
-			return;
-		}
-
-		qs('#konloader').style.setProperty('display', 'none');
-		qs('#konloader').firstElementChild.classList.add('hidden');
-		setTimeout(() => qs('#konloader').firstElementChild.style.setProperty('display', 'none'), 1500);
-	}
+    elKld.style.setProperty('display', 'none');
+  }
 }

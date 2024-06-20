@@ -1,9 +1,12 @@
 {
   "name": "@emravoan/konloader",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Simple JS Loader",
   "author": "EM Ravoan",
   "license": "MIT",
+  "main": "dist/bundle.js",
+  "module": "dist/bundle.esm.js",
+  "types": "dist/bundle.d.ts",
   "scripts": {
     "build": "rollup --config --configPlugin typescript",
     "watch": "rollup --config --configPlugin typescript -w"
